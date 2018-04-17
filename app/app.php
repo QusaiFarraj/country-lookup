@@ -1,5 +1,7 @@
 <?php
 
+ini_set('display_errors', '1');
+
 // load dependancies
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -32,8 +34,25 @@ $app->add(function ($req, $res, $next) {
 });
 
 // Routes
-$app->get('/', function ($request, $response){
-    return $response->write('Welcome to Country Lookup Api');
+$app->get('/', function ($request, $response) use ($container){
+    $index = $container->get('config')['files']['index'];
+    $file = file_get_contents($index);
+    // var_dump($file); die();
+    $response = $response->write($file);
+    return $response->withHeader('Content-Type','text/html');
+    // return $response->write('Welcome to Country Lookup Api');
+});
+$app->get('/static/css/main.e53e058f.css', function ($request, $response) use ($container){
+    $file = file_get_contents($container->get('config')['files']['css']);
+    // var_dump($file); die();
+    $response = $response->write($file);
+    return $response->withHeader('Content-Type','text/css');
+});
+$app->get('/static/js/main.d2e0aac2.js', function ($request, $response) use ($container){
+    $file = file_get_contents($container->get('config')['files']['js']);
+    // var_dump($file); die();
+    $response = $response->write($file);
+    return $response->withHeader('Content-Type','application/javascript');
 });
 
 $app->get('/lookup', function ($request, $response) use ($container){
