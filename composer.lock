@@ -4,8 +4,19 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc9d9c952432a53d823c4bb56c95944f",
+    "content-hash": "0e3b367d5b136e7a7e6bbe80c6f9470c",
     "packages": [
+        {
+            "name": "Qusaifarraj/country-lookup-react",
+            "version": "v0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/QusaiFarraj/country-lookup-react.git",
+                "reference": "91baccd381f5e4ab0a1a3041a0222385d1ecd10f"
+            },
+            "type": "library",
+            "time": "2018-04-17T19:13:55+00:00"
+        },
         {
             "name": "container-interop/container-interop",
             "version": "1.2.0",
